@@ -1,0 +1,32 @@
+@model IEnumerable<ProyectoDispositivosPrestamo.Models.Estudiante>
+@{
+    ViewData["Title"] = "CRUD Estudiantes";
+}
+<h1>Estudiantes</h1>
+<a asp-action="Create">Agregar Estudiante</a>
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Matrícula</th>
+            <th>Carrera</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var estudiante in Model)
+    {
+        <tr>
+            <td>@estudiante.Nombre</td>
+            <td>@estudiante.Matricula</td>
+            <td>@estudiante.Carrera</td>
+            <td>@estudiante.Correo</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@estudiante.Id">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@estudiante.Id">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
